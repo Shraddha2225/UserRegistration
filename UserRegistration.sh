@@ -6,6 +6,8 @@ echo "Welcome To User Registration validation"
 #patterns
 firstName="^[A-Z]{1}[a-z]{3,}$"
 firstNameAndlastName="^[A-Z]{1}[a-z]{3,}[[:space:]][A-Z]{1}[a-z]{3,}$"
+validEmail="^[a-zA-Z]{3,}[+-._]*{1}[a-zA-Z]*{3,}[@]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,3}[.]*{1}[a-zA-Z]*{2,3}$"
+
 function firstName()
 {
 	read  -p  "Enter First Name" input
@@ -28,6 +30,18 @@ function FirstAndlastName()
 	fi
 }
 
+function validEmail()
+{
+	read -p "Enter Valid Email"  input
+	if [[ $input =~ $validEmail ]]
+	then
+		echo "Valid Email"
+	else
+		echo "Please Enter A Valid Email"
+	fi
+}
+
 #calling function
 firstName
 FirstAndlastName
+validEmail
