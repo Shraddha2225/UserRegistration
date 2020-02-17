@@ -65,9 +65,21 @@ function passwordWithMinimumEightCharacter()
 	fi
 }
 
+function passwordWithAtLeastOneCapitalLetter()
+{
+	read -p "Enter Valid Password" password
+	if [[ ${#password} -ge 8 && "$password" == *[[:lower:]]* && "$password" == *[[:upper:]]* ]]
+	then
+	echo "Valid Password"
+	else
+	echo "Please Enter A Valid Password"
+	fi
+}
+
 #calling function
 firstName
 FirstAndlastName
 validEmail
 mobileNumber
 passwordWithMinimumEightCharacter
+passwordWithAtLeastOneCapitalLetter
