@@ -5,6 +5,7 @@ shopt -s extglob
 echo "Welcome To User Registration validation"
 #patterns
 firstName="^[A-Z]{1}[a-z]{3,}$"
+firstNameAndlastName="^[A-Z]{1}[a-z]{3,}[[:space:]][A-Z]{1}[a-z]{3,}$"
 function firstName()
 {
 	read  -p  "Enter First Name" input
@@ -16,5 +17,17 @@ function firstName()
 	fi
 }
 
+function FirstAndlastName()
+{
+	read  -p  "Enter Last Name"  input
+	if [[ $input =~ $firstNameAndlastName ]]
+	then
+		echo "Valid First And Last Name"
+	else
+		echo "Please Enter A Valid Last Name"
+	fi
+}
+
 #calling function
 firstName
+FirstAndlastName
