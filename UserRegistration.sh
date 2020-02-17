@@ -8,6 +8,7 @@ firstName="^[A-Z]{1}[a-z]{3,}$"
 firstNameAndlastName="^[A-Z]{1}[a-z]{3,}[[:space:]][A-Z]{1}[a-z]{3,}$"
 validEmail="^[a-zA-Z]{3,}[+-._]*{1}[a-zA-Z]*{3,}[@]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,3}[.]*{1}[a-zA-Z]*{2,3}$"
 validMobileNumber="^[0-9]{2}[[:space:]][0-9]{10}$"
+passwordRuleOne="^[a-zA-Z]{8,}$"
 
 function firstName()
 {
@@ -53,8 +54,20 @@ function mobileNumber()
 	fi
 }
 
+function passwordWithMinimumEightCharacter()
+{
+	read -p "Enter Valid Password" input
+	if [[ $input =~ $passwordRuleOne ]]
+	then
+		echo "Valid Password"
+	else
+		echo "Please Enter A Valid Password"
+	fi
+}
+
 #calling function
 firstName
 FirstAndlastName
 validEmail
 mobileNumber
+passwordWithMinimumEightCharacter
