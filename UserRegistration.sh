@@ -87,6 +87,17 @@ function  passwordWithAtLeastOneNumber()
 	fi
 }
 
+function  passwordWithAtLeastOneSpecialCharacter()
+{
+	read -p "Enter Valid Password" password
+	if [[ ${#password} -ge 8 && "$password" == *[[:lower:]]* && "$password" == *[[:upper:]]* && "$password" == *[0-9]*  && "$password" == *['!'@#\$%^\&*()_+]* ]]
+	then
+	echo "Valid Password"
+	else
+	echo "Please Enter A Valid Password"
+	fi
+}
+
 #calling function
 firstName
 FirstAndlastName
@@ -95,3 +106,4 @@ mobileNumber
 passwordWithMinimumEightCharacter
 passwordWithAtLeastOneCapitalLetter
 passwordWithAtLeastOneNumber
+passwordWithAtLeastOneSpecialCharacter
